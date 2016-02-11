@@ -75,6 +75,8 @@ export class CheToolbar {
     var buttonHrefTarget = attrs.cheButtonHrefTarget;
     var buttonName = attrs.cheButtonName;
     var buttonIcon = attrs.cheButtonIcon;
+    var addButtonName = attrs.cheAddButtonName;
+    var addButtonHref = attrs.cheAddButtonHref;
 
     var breadcrumbTitle = attrs.cheBreadcrumbTitle;
     var breadcrumbHref = attrs.cheBreadcrumbHref;
@@ -83,7 +85,7 @@ export class CheToolbar {
     var searchModel = attrs.cheSearchModel;
 
     var dropdownMenu = attrs.cheDropdownMenu;
-
+    var id = title.replace(' ', '_');
     var theme = attrs.theme;
 
     if (!theme) {
@@ -107,9 +109,10 @@ export class CheToolbar {
     }
 
     template += '<div layout=\"row\" flex layout-align=\"start center\" class=\"che-toolbar-header\">'
-    + '<div class=\"che-toolbar-title\" id=\"test\" flex layout=\"row\" layout-align=\"center center\">'
+    + '<div class=\"che-toolbar-title\" id=\"'+ id +'\" flex layout=\"row\" layout-align=\"center center\">'
     + '<span class=\"che-toolbar-title-label\">'
     + title + '</span><span class=\"che-toolbar-title-icons\">';
+
     if (titleController) {
       template = template
       + '<md-icon ng-repeat=\"icon in ' + titleController + '.toolbarIcons\" md-font-icon=\"{{icon.font}}\" ng-click=\"'
@@ -118,7 +121,7 @@ export class CheToolbar {
     template += '</span></div>';
 
     if (searchModel) {
-      template += '<che-search che-placeholder=\"' + searchPlaceholder+ '\" ng-model=\"' + searchModel + '\" che-replace-element=\"test\"></che-search>';
+      template += '<che-search che-placeholder=\"' + searchPlaceholder+ '\" ng-model=\"' + searchModel + '\" che-replace-element=\"' + id + '\"></che-search>';
     }
 
     template += '<div layout=\"row\" layout-align=\"start center\">';
@@ -139,6 +142,12 @@ export class CheToolbar {
       }
       template += '><md-icon md-font-icon=\"fa ' + buttonIcon + '\"></md-icon></a>';
     }
+
+    if (addButtonName) {
+      template += '<a class=\"che-toolbar-add-button\" title=\"' + addButtonName + '\" href=\"' + addButtonHref + '\"';
+      template += '><md-icon md-font-icon=\"fa fa-plus\"></md-icon></a>';
+    }
+
     template += '<ng-transclude></ng-transclude>';
     template += '</div></div>';
     template += '</div>'

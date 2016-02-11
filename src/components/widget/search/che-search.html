@@ -1,7 +1,7 @@
-<div flex ng-init="show=false" layout="row">
-  <md-icon md-font-icon="fa fa-search" class="search-icon" ng-click="show=true" ng-class="{'che-toolbar-control-button' : !show}"></md-icon>
-  <div flex  layout="row" ng-class="{'move-out': show, 'move-in': !show}" class="search-component">
-    <input class="search-input" type="text" name="{{inputName}}" ng-trim="false" data-ng-model="valueModel" placeholder="{{placeholder}}">
-    <md-icon md-font-icon="fa fa-close" ng-click="show=false" ng-show="show"></md-icon>
+<div flex layout="row">
+  <md-icon md-font-icon="fa fa-search" class="search-icon" ng-click="cheSearchCtrl.show()" ng-class="{'che-toolbar-control-button' : !cheSearchCtrl.isShown}"></md-icon>
+  <div flex  layout="row" ng-class="{'move-out': cheSearchCtrl.isShown, 'move-in': !cheSearchCtrl.isShown}" class="search-component">
+    <input class="search-input" type="text" name="{{cheSearchCtrl.inputName}}" ng-trim="false" data-ng-model="cheSearchCtrl.valueModel" placeholder="{{cheSearchCtrl.placeholder}}">
+    <md-icon md-font-icon="fa fa-close" ng-click="cheSearchCtrl.hide()" ng-show="cheSearchCtrl.isShown"></md-icon>
   </div>
 </div>

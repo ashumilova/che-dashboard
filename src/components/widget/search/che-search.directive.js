@@ -22,9 +22,12 @@ export class CheSearch {
    */
   constructor () {
     this.restrict = 'E';
-   // this.replace= true;
     this.transclude= true;
     this.templateUrl = 'components/widget/search/che-search.html';
+
+    this.controller = 'CheSearchCtrl';
+    this.controllerAs = 'cheSearchCtrl';
+    this.bindToController = true;
 
     // we require ngModel as we want to use it inside our directive
     this.require = ['ngModel'];

@@ -3,17 +3,23 @@
   border-bottom $default-dark-color 1px solid
   width 100%
 
-.move-out, .move-in
+.move-out
   -webkit-transition max-width 0.5s ease-in-out
   -moz-transition max-width 0.5s ease-in-out
   -o-transition max-width 0.5s ease-in-out
   transition max-width 0.5s ease-in-out
 
 .move-in
+  -webkit-transition max-width 0.1s linear
+  -moz-transition max-width 0.1s linear
+  -o-transition max-width 0.1s linear
+  transition max-width 0.1s linear
+
+.move-in
   max-width 0px
 
 .move-out
-  max-width 800px
+  max-width 400px
   margin-left 5px
   margin-right 15px
 
